@@ -1,0 +1,29 @@
+# This is a basic workflow to help you get started with Actions
+
+name: third pipeline
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  pull-request:
+    branch:
+      main
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  Secure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Secure Stage
+        run: date
+      - name: Repo
+        run: |
+         echo "Secure Stage Repo: ${{ github.repository}}"
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deployment Stage
+        run: date
+      - name: Repo
+        run: |
+         echo "Deployment Stage Repo: ${{ github.repository}}"
